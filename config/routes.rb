@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'toppages#index' 
   
+  
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
     member do
       get :followings
       get :followers
-      get :like_microposts
+      get :likes
     end
     
   end
@@ -19,4 +20,5 @@ Rails.application.routes.draw do
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :likes , only: [:create, :destroy]
+  
 end
